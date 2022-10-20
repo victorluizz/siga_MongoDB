@@ -198,4 +198,19 @@ use('SigaDB');
     ],
 );
 
+/*
+    Inserindo alunos.
+*/
 
+db.Alunos.insertOne({
+        cpf: "67841944462",
+        nome: "Carlos Pereira",
+        codigo_aluno: 01,
+        data_nascimento: new ISODate("1995-05-18"),
+        entrada: {"2020.2": ["Ciência da Computação"]},
+        situacao: "Matriculado",
+        email: "carlospereira@cin.ufpe.br",
+        telefone: "(87) 2189-3264",
+        turmas: {"2021.2": ["Infraestrutura de Hardware", "Projetao"],
+                    "2022.1": ["Compiladores", "Estatística para Computação"]}
+})
