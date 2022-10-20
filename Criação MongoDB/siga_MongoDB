@@ -202,15 +202,84 @@ use('SigaDB');
     Inserindo alunos.
 */
 
-db.Alunos.insertOne({
-        cpf: "67841944462",
-        nome: "Carlos Pereira",
-        codigo_aluno: 01,
-        data_nascimento: new ISODate("1995-05-18"),
+db.Alunos.insertMany(
+    [
+    
+      {
+          cpf: "67841944462",
+          nome: "Carlos Pereira",
+          codigo_aluno: 01,
+          data_nascimento: new ISODate("1995-05-18"),
+          entrada: {"2020.2": ["Ciência da Computação"]},
+          situacao: "Matriculado",
+          email: "carlospereira@cin.ufpe.br",
+          telefone: "(87) 2189-3264",
+          turmas: {"2021.2": ["Infraestrutura de Hardware", "Projetao"],
+                      "2022.1": ["Compiladores", "Estatística para Computação"]}
+
+      },
+
+      {
+        cpf: "12434808409",
+        nome: "Karen Samara",
+        codigo_aluno: 02,
+        data_nascimento: new ISODate("2000-03-03"),
+        entrada: {"2019.2": ["Ciência da Computação"]},
+        situacao: "Matriculado",
+        email: "karensamara@cin.ufpe.br",
+        telefone: "(81) 2768-0826",
+        turmas: {"2021.2": ["Infraestrutura de Hardware", "Estatística para Computação"],
+                    "2022.1": ["Gerenciamento de Dados e Informação", "Compiladores"]}
+
+
+      },
+
+      {
+        cpf: "89730191476",
+        nome: "Victor Luiz",
+        codigo_aluno: 03,
+        data_nascimento: new ISODate("2000-03-14"),
         entrada: {"2020.2": ["Ciência da Computação"]},
         situacao: "Matriculado",
-        email: "carlospereira@cin.ufpe.br",
-        telefone: "(87) 2189-3264",
-        turmas: {"2021.2": ["Infraestrutura de Hardware", "Projetao"],
-                    "2022.1": ["Compiladores", "Estatística para Computação"]}
-})
+        email: "victorluiz@cin.ufpe.br",
+        telefone: "(81) 3637-1548",
+        turmas: {"2021.2": ["Infraestrutura de Hardware", "Infraestrutura de Comunicação"],
+                    "2022.1": ["Gerenciamento de Dados e Informação", "Interface Usuário Máquina"]}
+
+
+      },
+
+      {
+        cpf: "11979892423",
+        nome: "Romulo Daniell",
+        codigo_aluno: 04,
+        data_nascimento: new ISODate("2000-12-05"),
+        entrada: {"2019.2": ["Sistemas de Informação"]},
+        situacao: "Matriculado",
+        email: "romulodaniell@cin.ufpe.br",
+        telefone: "(87) 3163-1730",
+        turmas: {"2021.2": ["Compiladores", "Redes"],
+                    "2022.1": ["Projetão", "Interface Usuário Máquina"]}
+
+
+      },
+
+      {
+        cpf: "41553320433",
+        nome: "Renato Alpes",
+        codigo_aluno: 05,
+        data_nascimento: new ISODate("2000-09-13"),
+        entrada: {"2019.1": ["Engenharia da Computação"]},
+        situacao: "Trancado",
+        email: "renatoalpes@cin.ufpe.br",
+        telefone: "(87) 3479-4867",
+        turmas: {"2021.2": ["Gerenciamento de Dados e Informação", "Infraestrutura de Hardware"]}
+
+      }
+
+    ],
+
+    {
+      ordered: false
+    }
+)
