@@ -466,13 +466,13 @@ db.createCollection("disciplinas");
     Criando a coleção de "cursos".
 */
 
-db.createCollection("cursos");
+db.createCollection("curso");
 
 /*
-    Inserindo cursos.
+    Inserindo curso (será renomeado para cursos).
 */
 
-    db.cursos.insertMany(
+    db.curso.insertMany(
     [
         {
             nome_curso: "Ciência da Computação",

@@ -1,1 +1,20 @@
 
+use("SigaDB");
+
+// RENAMECOLLECTION
+db.curso.renameCollection("cursos");
+
+// COUNT
+db.professores.count();
+db.disciplinas.count();
+db.cursos.count();
+
+// $WHERE FUNCTION
+db.professores.find({$where: function() {
+    return (this.cpf == "50544000447")
+}
+}).pretty();
+
+
+// FIND SORT
+db.professores.find().sort({nome: -1}).pretty();
