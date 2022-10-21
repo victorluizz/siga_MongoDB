@@ -1,16 +1,22 @@
-use('SigaDB');
+use("SigaDB");
+
+/*
+    Criando a coleção de "professores".
+*/
+
+db.createCollection("professores");
 
 /*
     Inserindo professores.
 */
 
-db.Professores.insertMany(
+db.professores.insertMany(
     [
         {
             cpf: "50544000447",
             nome: "Valéria",
             codigo_professor: 01,
-            salario: Decimal128("12.500"),
+            salario: Decimal128("15.500"),
             data_nascimento: new ISODate("1985-05-18"),
             email: "valeria@cin.ufpe.br",
             telefone: "(81) 3382-6106"
@@ -58,7 +64,130 @@ db.Professores.insertMany(
             email: "renatamaria@cin.ufpe.br",
             telefone: "(81) 2586-4685"
         
-        }
+        },
+
+        {
+            cpf: "33394008491",
+            nome: "Romulo Daniell",
+            codigo_professor: 06,
+            salario: Decimal128("11.654"),
+            data_nascimento: new ISODate("1985-12-05"),
+            email: "romulodaniell@cin.ufpe.br",
+            telefone: "(87) 3477-1365"
+
+
+        },
+
+        {
+            cpf: "95877761439",
+            nome: "Marcelo Anderson",
+            codigo_professor: 07,
+            salario: Decimal128("13.950"),
+            data_nascimento: new ISODate("1975-03-07"),
+            email: "marceloanderson@cin.ufpe.br",
+            telefone: "(87) 3706-7861"
+
+        },
+
+        {
+            cpf: "64437787404",
+            nome: "Gabriel Almeida",
+            codigo_professor: 08,
+            salario: Decimal128("7.120"),
+            data_nascimento: new ISODate("1965-05-12"),
+            email: "gabrielalmeida@cin.ufpe.br",
+            telefone: "(81) 3249-5752"
+
+        },
+
+        {
+            cpf: "57284923474",
+            nome: "Lívia Vasconcelos",
+            codigo_professor: 09,
+            salario: Decimal128("8.500"),
+            data_nascimento: new ISODate("1959-04-03"),
+            email: "liviavasconcelos@cin.ufpe.br",
+            telefone: "(81) 3035-0891"
+
+        },
+
+        {
+            cpf: "14078906460",
+            nome: "Victor Luiz",
+            codigo_professor: 10,
+            salario: Decimal128("9.700"),
+            data_nascimento: new ISODate("1985-03-14"),
+            email: "victorluiz@cin.ufpe.br",
+            telefone: "(87) 3848-7261"
+
+        },
+
+        {
+            cpf: "56890260422",
+            nome: "Thayana Santos",
+            codigo_professor: 11,
+            salario: Decimal128("7.690"),
+            data_nascimento: new ISODate("1971-07-30"),
+            email: "thayanasantos@cin.ufpe.br",
+            telefone: "(81) 2282-5652"
+
+        },
+
+        {
+            cpf: "70819862428",
+            nome: "Ayandson Carlos",
+            codigo_professor: 12,
+            salario: Decimal128("11.900"),
+            data_nascimento: new ISODate("1967-02-28"),
+            email: "ayandsoncarlos@cin.ufpe.br",
+            telefone: "(87) 3798-1226"
+
+        },
+
+        {
+            cpf: "83934862462",
+            nome: "Eduardo Conti",
+            codigo_professor: 13,
+            salario: Decimal128("8.500"),
+            data_nascimento: new ISODate("1950-03-12"),
+            email: "eduardoconti@cin.ufpe.br",
+            telefone: "(87) 2262-7229"
+
+        },
+
+        {
+            cpf: "50608501450",
+            nome: "Rafael Silva",
+            codigo_professor: 14,
+            salario: Decimal128("6.230"),
+            data_nascimento: new ISODate("1987-12-12"),
+            email: "rafaelsilva@cin.ufpe.br",
+            telefone: "(87) 2699-2222"
+
+        }, 
+
+        {
+            cpf: "44980377408",
+            nome: "Gustavo Nascimento",
+            codigo_professor: 15,
+            salario: Decimal128("8.890"),
+            data_nascimento: new ISODate("1988-09-03"),
+            email: "gustavonascimento@cin.ufpe.br",
+            telefone: "(87) 2475-5824"
+
+        },
+
+         {
+            cpf: "26276485438",
+            nome: "Dandalia Luiza",
+            codigo_professor: 16,
+            salario: Decimal128("13.000"),
+            data_nascimento: new ISODate("1983-10-27"),
+            email: "dandalialuiza@cin.ufpe.br",
+            telefone: "(81) 3218-4422"
+
+        },       
+
     ],
 
     {
@@ -67,9 +196,16 @@ db.Professores.insertMany(
   );
 
 /*
-    Inserindo as Disciplinas.
+    Criando a coleção de "disciplinas".
 */
-   db.Disciplinas.insertMany(
+
+
+db.createCollection("disciplinas");
+
+/*
+    Inserindo as disciplinas.
+*/
+   db.disciplinas.insertMany(
 
         [
             {
@@ -77,7 +213,7 @@ db.Professores.insertMany(
                 codigo: 122,
                 descricao: "Tratamento de dados e informações.",
                 creditos: 5,
-                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+                professor_ensina: [db.professores.findOne({cpf: "50544000447"})]
 
             },
 
@@ -87,7 +223,7 @@ db.Professores.insertMany(
                 codigo: 123,
                 descricao: "Projeto de empreendedorismo.",
                 creditos: 3,
-                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})._id]
+                professor_ensina: [db.professores.findOne({cpf: "70819862428"})._id]
 
             },
 
@@ -96,7 +232,7 @@ db.Professores.insertMany(
                 codigo: 124,
                 descricao: "Criação de CPU e threads no SO.",
                 creditos: 5,
-                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+                professor_ensina: [db.professores.findOne({cpf: "25387941457"})]
             },
 
             {    
@@ -104,7 +240,7 @@ db.Professores.insertMany(
                 codigo: 125,
                 descricao: "Como a internet funciona.",
                 creditos: 5,
-                professor_ensina: [db.Professores.findOne({cpf: "39929117482"})]
+                professor_ensina: [db.professores.findOne({cpf: "39929117482"})]
 
             },
 
@@ -113,7 +249,7 @@ db.Professores.insertMany(
                 codigo: 126,
                 descricao: "O que é design?",
                 creditos: 2,
-                professor_ensina: [db.Professores.findOne({cpf: "83753383465"})]
+                professor_ensina: [db.professores.findOne({cpf: "83753383465"})]
 
             },
 
@@ -122,7 +258,7 @@ db.Professores.insertMany(
                 codigo: 127,
                 descricao: "Estatística voltada para computação.",
                 creditos: 3,
-                professor_ensina: [db.Professores.findOne({cpf: "54075455432"})]
+                professor_ensina: [db.professores.findOne({cpf: "54075455432"})]
 
             },  
 
@@ -131,7 +267,7 @@ db.Professores.insertMany(
                 codigo: 128,
                 descricao: "Criar compiladores.",
                 creditos: 4,
-                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})._id]
+                professor_ensina: [db.professores.findOne({cpf: "25387941457"})._id]
 
             },
 
@@ -141,7 +277,7 @@ db.Professores.insertMany(
                 codigo: 129,
                 descricao: "Como a internet funciona.",
                 creditos: 4,
-                professor_ensina: [db.Professores.findOne({cpf: "39929117482"})]
+                professor_ensina: [db.professores.findOne({cpf: "44980377408"})]
 
             },
 
@@ -150,7 +286,7 @@ db.Professores.insertMany(
                 codigo: 130,
                 descricao: "Projeto de empreendorismo.",
                 creditos: 3,
-                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+                professor_ensina: [db.professores.findOne({cpf: "50544000447"})]
 
             },
             
@@ -160,7 +296,7 @@ db.Professores.insertMany(
                 codigo: 131,
                 descricao: "Introdução a estatística para computação.",
                 creditos: 3,
-                professor_ensina: [db.Professores.findOne({cpf: "54075455432"})]
+                professor_ensina: [db.professores.findOne({cpf: "54075455432"})]
 
             },
 
@@ -170,7 +306,7 @@ db.Professores.insertMany(
                 codigo: 132,
                 descricao: "Tratamento de dados e informações.",
                 creditos: 5,
-                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+                professor_ensina: [db.professores.findOne({cpf: "83934862462"})]
 
             },
 
@@ -180,7 +316,7 @@ db.Professores.insertMany(
                 codigo: 133,
                 descricao: "Projeto de empreendedorismo.",
                 creditos: 2,
-                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+                professor_ensina: [db.professores.findOne({cpf: "50544000447"})]
 
             },
 
@@ -190,7 +326,7 @@ db.Professores.insertMany(
                 codigo: 134,
                 descricao: "Criação de CPU e threads no SO.",
                 creditos: 2,
-                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+                professor_ensina: [db.professores.findOne({cpf: "25387941457"})]
 
             },
 
@@ -200,10 +336,124 @@ db.Professores.insertMany(
                 codigo: 135,
                 descricao: "Estatística voltada para computação.",
                 creditos: 3,
-                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+                professor_ensina: [db.professores.findOne({cpf: "25387941457"})]
+
+            },
+
+            {
+
+                nome: "Física para Computação",
+                codigo: 136,
+                descricao: "Física que talvez seja para computação.",
+                creditos: 3,
+                professor_ensina: [db.professores.findOne({cpf: "95877761439"})]
+
+            },
+            {
+
+                nome: "Física 1",
+                codigo: 137,
+                descricao: "Física 1: O início do sofrimento.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "70819862428"})]
+
+            },
+
+            {
+
+                nome: "Cálculo 1",
+                codigo: 138,
+                descricao: "Cálculo 1 para calouros.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "56890260422"}), 
+                                    db.professores.findOne({cpf: "14078906460"})]
+
+            },   
+
+            {
+
+                nome: "Cálculo 2",
+                codigo: 139,
+                descricao: "Cálculo 2 para semi veteranos.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "56890260422"}), 
+                                    db.professores.findOne({cpf: "83934862462"}),
+                                    db.professores.findOne({cpf: "57284923474"})]
+
+            },  
+
+            {
+
+                nome: "Cálculo 3",
+                codigo: 140,
+                descricao: "Cálculo 3 para sofredores.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "14078906460"}), 
+                                    db.professores.findOne({cpf: "33394008491"})]
+
+            }, 
+
+            {
+
+                nome: "Introdução a Computação",
+                codigo: 141,
+                descricao: "Alan Turning pai da computação.",
+                creditos: 3,
+                professor_ensina: [db.professores.findOne({cpf: "57284923474"})]
+
+            }, 
+
+            {
+
+                nome: "Infraestrutura de Software",
+                codigo: 142,
+                descricao: "Threads e conceitos sobre memória.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "33394008491"})]
+
+            },
+
+            {
+
+                nome: "Introdução a Sistemas de Informação",
+                codigo: 143,
+                descricao: "Introdução e conceitos básicos sobre Sistemas de Informação.",
+                creditos: 3,
+                professor_ensina: [db.professores.findOne({cpf: "64437787404"})]
+
+            }, 
+
+            {
+
+                nome: "Matemática Discreta",
+                codigo: 144,
+                descricao: "Fazer o calouro desistir já no primeiro período.",
+                creditos: 4,
+                professor_ensina: [db.professores.findOne({cpf: "50608501450"}), 
+                                    db.professores.findOne({cpf: "25387941457"})]
+
+            },
+
+            {
+
+                nome: "Programação 1",
+                codigo: 145,
+                descricao: "Introduzir o aluno a linguagem de programação Python.",
+                creditos: 5,
+                professor_ensina: [db.professores.findOne({cpf: "26276485438"}), 
+                                    db.professores.findOne({cpf: "14078906460"})]
+
+            },
+            {
+
+                nome: "Introdução a Programação",
+                codigo: 146,
+                descricao: "Introduzir o aluno a conceitos básicos da programação.",
+                creditos: 5,
+                professor_ensina: [db.professores.findOne({cpf: "26276485438"}),
+                                    db.professores.findOne({cpf: "14078906460"})]
 
             }
-
     ],
 
     {
@@ -212,12 +462,17 @@ db.Professores.insertMany(
 
 
 );
+/*
+    Criando a coleção de "cursos".
+*/
+
+db.createCollection("cursos");
 
 /*
     Inserindo cursos.
 */
 
-    db.Cursos.insertMany(
+    db.cursos.insertMany(
     [
         {
             nome_curso: "Ciência da Computação",
@@ -225,23 +480,34 @@ db.Professores.insertMany(
             departamento: "Departamento de Informática",
             campus: ["Campus Recife"],
             codigo: 1,
-            disciplinas: [db.Disciplinas.findOne({codigo: 122}),
-                        db.Disciplinas.findOne({codigo: 123}),
-                        db.Disciplinas.findOne({codigo: 124}),
-                        db.Disciplinas.findOne({codigo: 125}),
-                        db.Disciplinas.findOne({codigo: 126}),
-                        db.Disciplinas.findOne({codigo: 127})]
+            disciplinas: [db.disciplinas.findOne({codigo: 122}),
+                        db.disciplinas.findOne({codigo: 123}),
+                        db.disciplinas.findOne({codigo: 124}),
+                        db.disciplinas.findOne({codigo: 125}),
+                        db.disciplinas.findOne({codigo: 126}),
+                        db.disciplinas.findOne({codigo: 127}),
+                        db.disciplinas.findOne({codigo: 146}),
+                        db.disciplinas.findOne({codigo: 144}),
+                        db.disciplinas.findOne({codigo: 142}),
+                        db.disciplinas.findOne({codigo: 136})]
 
 
         },
 
 
-        /*{
+        {
             nome_curso: "Sistemas de Informação",
             centro: "Centro de Informática",
             departamento: "Departamento de Informática",
             campus: ["Campus Recife", "Campus Agreste"],
-            codigo: 2
+            codigo: 2,
+            disciplinas: [db.disciplinas.findOne({codigo: 129}),
+                       db.disciplinas.findOne({codigo: 130}),
+                       db.disciplinas.findOne({codigo: 131}),
+                       db.disciplinas.findOne({codigo: 129}),
+                       db.disciplinas.findOne({codigo: 143}),
+                       db.disciplinas.findOne({codigo: 145}),
+                       db.disciplinas.findOne({codigo: 141}),]
             
         },
 
@@ -251,10 +517,21 @@ db.Professores.insertMany(
             departamento: "Departamento de Informática",
             campus: ["Campus Recife"],
             codigo: 3,
+                        disciplinas: [db.disciplinas.findOne({codigo: 128}),
+                       db.disciplinas.findOne({codigo: 132}),
+                       db.disciplinas.findOne({codigo: 133}),
+                       db.disciplinas.findOne({codigo: 134}),
+                       db.disciplinas.findOne({codigo: 135}),
+                       db.disciplinas.findOne({codigo: 138}),
+                       db.disciplinas.findOne({codigo: 139}),
+                       db.disciplinas.findOne({codigo: 140}),]
            
         }
-        */
 
     ],
+
+        {
+            ordered: false
+    }
 );
   
