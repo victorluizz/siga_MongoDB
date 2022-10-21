@@ -18,3 +18,18 @@ db.professores.find({$where: function() {
 
 // FIND SORT
 db.professores.find().sort({nome: -1}).pretty();
+
+//FIND, COUNT: Quantidade de disciplinas que o professor Adriano ensina
+db.disciplinas.find({"professor_ensina.nome": "Adriano Sarmento"}).count();
+
+
+//AGGREGATE, GTE, MATCH, GROUP, MAX, SORT: Disciplinas e Professores que ensinam disciplinas com creditos > 4
+db.disciplinas.aggregate([
+  {$match:{creditos: {$gte:4}}},
+  {$group:{_id:'$nome', professores: {$max: '$professor_ensina.nome'}}},
+  {$sort:{'_id': 1}}
+]);
+
+//FIND, TEXT, SEARCH: Disciplinas introdutórias
+db.disciplinas.createIndex({nome: 'text'});
+db.disciplinas.find({$text: {$search: '1'}}, {_id : 0, nome: 1, descricao: 1});
