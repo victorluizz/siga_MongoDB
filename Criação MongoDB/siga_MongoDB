@@ -1,10 +1,10 @@
 use('SigaDB');
 
- /*
-  Inserindo professores.
- */
+/*
+    Inserindo professores.
+*/
 
-  db.Professores.insertMany(
+db.Professores.insertMany(
     [
         {
             cpf: "50544000447",
@@ -12,8 +12,6 @@ use('SigaDB');
             codigo_professor: 01,
             salario: Decimal128("12.500"),
             data_nascimento: new ISODate("1985-05-18"),
-            turmas: {"2021.2": ["Gerenciamento de Dados e Informação", "Projetão"],
-                "2022.1": ["Gerenciamento de Dados e Informação"]},
             email: "valeria@cin.ufpe.br",
             telefone: "(81) 3382-6106"
         },
@@ -24,8 +22,6 @@ use('SigaDB');
             codigo_professor: 02,
             salario: Decimal128("12.100"),
             data_nascimento: new ISODate("1975-01-22"),
-            turmas: {"2021.2": ["Infraestrutura de Hardware", "Compiladores"],
-                    "2022.1": ["Infraestrutura de Hardware", "Compiladores"]},
             email: "adrianosarmento@cin.ufpe.br",
             telefone: "(81) 3689-5584"
         },
@@ -36,8 +32,6 @@ use('SigaDB');
             codigo_professor: 03,
             salario: Decimal128("15.500"),
             data_nascimento: new ISODate("1972-07-11"),
-            turmas: {"2021.2": ["Infraestrutura de Comunicação", "Redes"],
-                    "2022.1": ["Infraestrutura de Comunicação", "Redes"]},
             email: "paulogoncalves@cin.ufpe.br",
             telefone: "(87) 3683-1957"
         
@@ -49,8 +43,6 @@ use('SigaDB');
             codigo_professor: 04,
             salario: Decimal128("8.500"),
             data_nascimento: new ISODate("1967-12-12"),
-            turmas: {"2021.2": ["Interface Usuário Máquina"],
-                    "2022.1": ["Inferface Usuário Máquina"]},
             email: "alexsandro@cin.ufpe.br",
             telefone: "(81) 3022-5243"
         
@@ -63,8 +55,6 @@ use('SigaDB');
             codigo_professor: 05,
             salario: Decimal128("10.760"),
             data_nascimento: new ISODate("1981-03-04"),
-            turmas: {"2021.2": ["Estistíca para Computação", "Estatística 1"],
-                    "2022.1": ["Estatística para Computação"]},
             email: "renatamaria@cin.ufpe.br",
             telefone: "(81) 2586-4685"
         
@@ -77,9 +67,155 @@ use('SigaDB');
   );
 
 /*
-    Inserindo os cursos.
+    Inserindo as Disciplinas.
 */
+   db.Disciplinas.insertMany(
 
+        [
+            {
+                nome: "Gerenciamento de Dados e Informação",
+                codigo: 122,
+                descricao: "Tratamento de dados e informações.",
+                creditos: 5,
+                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+
+            },
+
+            {
+
+                nome: "Projetão",
+                codigo: 123,
+                descricao: "Projeto de empreendedorismo.",
+                creditos: 3,
+                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})._id]
+
+            },
+
+            {
+                nome: "Infraestrutura de Hardware",
+                codigo: 124,
+                descricao: "Criação de CPU e threads no SO.",
+                creditos: 5,
+                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+            },
+
+            {    
+                nome: "Infraestrutura de Comunicação",
+                codigo: 125,
+                descricao: "Como a internet funciona.",
+                creditos: 5,
+                professor_ensina: [db.Professores.findOne({cpf: "39929117482"})]
+
+            },
+
+            {
+                nome: "Interface Usuário-Máquina",
+                codigo: 126,
+                descricao: "O que é design?",
+                creditos: 2,
+                professor_ensina: [db.Professores.findOne({cpf: "83753383465"})]
+
+            },
+
+            {
+                nome: "Estatística para Computação",
+                codigo: 127,
+                descricao: "Estatística voltada para computação.",
+                creditos: 3,
+                professor_ensina: [db.Professores.findOne({cpf: "54075455432"})]
+
+            },  
+
+            {
+                nome: "Compiladores",
+                codigo: 128,
+                descricao: "Criar compiladores.",
+                creditos: 4,
+                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})._id]
+
+            },
+
+            {
+
+                nome: "Redes",
+                codigo: 129,
+                descricao: "Como a internet funciona.",
+                creditos: 4,
+                professor_ensina: [db.Professores.findOne({cpf: "39929117482"})]
+
+            },
+
+            {
+                nome: "Projetão",
+                codigo: 130,
+                descricao: "Projeto de empreendorismo.",
+                creditos: 3,
+                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+
+            },
+            
+            {
+
+                nome: "Estatística 1",
+                codigo: 131,
+                descricao: "Introdução a estatística para computação.",
+                creditos: 3,
+                professor_ensina: [db.Professores.findOne({cpf: "54075455432"})]
+
+            },
+
+            {
+
+                nome: "Gerenciamento de Dados de Informação",
+                codigo: 132,
+                descricao: "Tratamento de dados e informações.",
+                creditos: 5,
+                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+
+            },
+
+            {
+
+                nome: "Projetão",
+                codigo: 133,
+                descricao: "Projeto de empreendedorismo.",
+                creditos: 2,
+                professor_ensina: [db.Professores.findOne({cpf: "50544000447"})]
+
+            },
+
+            {
+
+                nome: "Infraestrutura de Hardware",
+                codigo: 134,
+                descricao: "Criação de CPU e threads no SO.",
+                creditos: 2,
+                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+
+            },
+
+            {
+
+                nome: "Estatística para Computação",
+                codigo: 135,
+                descricao: "Estatística voltada para computação.",
+                creditos: 3,
+                professor_ensina: [db.Professores.findOne({cpf: "25387941457"})]
+
+            }
+
+    ],
+
+    {
+            ordered: false
+    }
+
+
+);
+
+/*
+    Inserindo cursos.
+*/
 
     db.Cursos.insertMany(
     [
@@ -89,78 +225,24 @@ use('SigaDB');
             departamento: "Departamento de Informática",
             campus: ["Campus Recife"],
             codigo: 1,
-            disciplinas:  {
-                            gdi: {
-                            codigo: 123,
-                            descricao: "Tratamento de dados e informações.",
-                            creditos: 5
-                            },
+            disciplinas: [db.Disciplinas.findOne({codigo: 122}),
+                        db.Disciplinas.findOne({codigo: 123}),
+                        db.Disciplinas.findOne({codigo: 124}),
+                        db.Disciplinas.findOne({codigo: 125}),
+                        db.Disciplinas.findOne({codigo: 126}),
+                        db.Disciplinas.findOne({codigo: 127})]
 
-                        ProjetaoCC: {
-                            codigo: 124,
-                            descricao: "Projeto de empreendedorismo.",
-                            creditos: 3
-                        },
-
-                        InfraHw: {
-                            codigo: 125,
-                            descricao: "Criação de CPU e threads no SO.",
-                            creditos: 5
-                        },
-                        
-                        InfraCom: {
-                                codigo: 126,
-                                descricao: "Como a internet funciona.",
-                                creditos: 5
-
-                                },
-
-                        Ium: {
-                            codigo: 127,
-                            descricao: "Projetos de design com foco no usuário.",
-                            creditos: 3
-                            },
-
-                        EstComp: {
-                                 codigo: 128,
-                                 descricao: "Estatística voltada para computação.",
-                                 creditos: 2   
-                                }
-                        }
 
         },
 
-        {
+
+        /*{
             nome_curso: "Sistemas de Informação",
             centro: "Centro de Informática",
             departamento: "Departamento de Informática",
             campus: ["Campus Recife", "Campus Agreste"],
-            codigo: 2,
-            disciplinas:  {
-                        Compiladores: {
-                            codigo: 129,
-                            descricao: "Criar compiladores.",
-                            creditos: 4
-                        },
-
-                        Redes: {
-                            codigo: 130,
-                            descricao: "Como a internet funciona.",
-                            creditos: 4
-                            
-                        },
-                        ProjetaoSI: {
-                            codigo: 131,
-                            descricao: "Projeto de empreendorismo.",
-                        },
-
-                        Est1: {
-                            codigo: 132,
-                            descricao: "Introdução a estatística para computação.",
-                            creditos: 3
-                        }
-                        }
-
+            codigo: 2
+            
         },
 
         {
@@ -169,117 +251,10 @@ use('SigaDB');
             departamento: "Departamento de Informática",
             campus: ["Campus Recife"],
             codigo: 3,
-            disciplinas:  {
-                            gdiEC: {
-                            codigo: 133,
-                            descricao: "Tratamento de dados e informações.",
-                            creditos: 5
-                            },
-
-                        ProjetaoEC: {
-                            codigo: 134,
-                            descricao: "Projeto de empreendedorismo.",
-                            creditos: 2
-                        },
-
-                        InfraHw: {
-                            codigo: 135,
-                            descricao: "Criação de CPU e threads no SO.",
-                            creditos: 5
-                        },
-                        EstEC: {
-                                 codigo: 136,
-                                 descricao: "Estatística voltada para computação.",
-                                 creditos: 3  
-                        }
-                    }
+           
         }
+        */
 
     ],
 );
-
-/*
-    Inserindo alunos.
-*/
-
-db.Alunos.insertMany(
-    [
-    
-      {
-          cpf: "67841944462",
-          nome: "Carlos Pereira",
-          codigo_aluno: 01,
-          data_nascimento: new ISODate("1995-05-18"),
-          entrada: {"2020.2": ["Ciência da Computação"]},
-          situacao: "Matriculado",
-          email: "carlospereira@cin.ufpe.br",
-          telefone: "(87) 2189-3264",
-          turmas: {"2021.2": ["Infraestrutura de Hardware", "Projetao"],
-                      "2022.1": ["Compiladores", "Estatística para Computação"]}
-
-      },
-
-      {
-        cpf: "12434808409",
-        nome: "Karen Samara",
-        codigo_aluno: 02,
-        data_nascimento: new ISODate("2000-03-03"),
-        entrada: {"2019.2": ["Ciência da Computação"]},
-        situacao: "Matriculado",
-        email: "karensamara@cin.ufpe.br",
-        telefone: "(81) 2768-0826",
-        turmas: {"2021.2": ["Infraestrutura de Hardware", "Estatística para Computação"],
-                    "2022.1": ["Gerenciamento de Dados e Informação", "Compiladores"]}
-
-
-      },
-
-      {
-        cpf: "89730191476",
-        nome: "Victor Luiz",
-        codigo_aluno: 03,
-        data_nascimento: new ISODate("2000-03-14"),
-        entrada: {"2020.2": ["Ciência da Computação"]},
-        situacao: "Matriculado",
-        email: "victorluiz@cin.ufpe.br",
-        telefone: "(81) 3637-1548",
-        turmas: {"2021.2": ["Infraestrutura de Hardware", "Infraestrutura de Comunicação"],
-                    "2022.1": ["Gerenciamento de Dados e Informação", "Interface Usuário Máquina"]}
-
-
-      },
-
-      {
-        cpf: "11979892423",
-        nome: "Romulo Daniell",
-        codigo_aluno: 04,
-        data_nascimento: new ISODate("2000-12-05"),
-        entrada: {"2019.2": ["Sistemas de Informação"]},
-        situacao: "Matriculado",
-        email: "romulodaniell@cin.ufpe.br",
-        telefone: "(87) 3163-1730",
-        turmas: {"2021.2": ["Compiladores", "Redes"],
-                    "2022.1": ["Projetão", "Interface Usuário Máquina"]}
-
-
-      },
-
-      {
-        cpf: "41553320433",
-        nome: "Renato Alpes",
-        codigo_aluno: 05,
-        data_nascimento: new ISODate("2000-09-13"),
-        entrada: {"2019.1": ["Engenharia da Computação"]},
-        situacao: "Trancado",
-        email: "renatoalpes@cin.ufpe.br",
-        telefone: "(87) 3479-4867",
-        turmas: {"2021.2": ["Gerenciamento de Dados e Informação", "Infraestrutura de Hardware"]}
-
-      }
-
-    ],
-
-    {
-      ordered: false
-    }
-)
+  
