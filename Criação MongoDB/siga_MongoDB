@@ -19,7 +19,8 @@ db.professores.insertMany(
             salario: Decimal128("15.500"),
             data_nascimento: new ISODate("1985-05-18"),
             email: "valeria@cin.ufpe.br",
-            telefone: "(81) 3382-6106"
+            telefone: "(81) 3382-6106",
+            campus: ["Campus Recife", "Campus Agreste"]
         },
         
         {
@@ -29,7 +30,8 @@ db.professores.insertMany(
             salario: Decimal128("12.100"),
             data_nascimento: new ISODate("1975-01-22"),
             email: "adrianosarmento@cin.ufpe.br",
-            telefone: "(81) 3689-5584"
+            telefone: "(81) 3689-5584",
+            campus: ["Campus Recife"]
         },
 
         { 
@@ -39,7 +41,8 @@ db.professores.insertMany(
             salario: Decimal128("15.500"),
             data_nascimento: new ISODate("1972-07-11"),
             email: "paulogoncalves@cin.ufpe.br",
-            telefone: "(87) 3683-1957"
+            telefone: "(87) 3683-1957",
+            campus: ["Campus Recife"]
         
         },
 
@@ -50,7 +53,8 @@ db.professores.insertMany(
             salario: Decimal128("8.500"),
             data_nascimento: new ISODate("1967-12-12"),
             email: "alexsandro@cin.ufpe.br",
-            telefone: "(81) 3022-5243"
+            telefone: "(81) 3022-5243",
+            campus: ["Campus Recife"]
         
         },
 
@@ -62,7 +66,8 @@ db.professores.insertMany(
             salario: Decimal128("10.760"),
             data_nascimento: new ISODate("1981-03-04"),
             email: "renatamaria@cin.ufpe.br",
-            telefone: "(81) 2586-4685"
+            telefone: "(81) 2586-4685",
+            campus: ["Campus Recife", "Campus Agreste"]
         
         },
 
@@ -73,7 +78,8 @@ db.professores.insertMany(
             salario: Decimal128("11.654"),
             data_nascimento: new ISODate("1985-12-05"),
             email: "romulodaniell@cin.ufpe.br",
-            telefone: "(87) 3477-1365"
+            telefone: "(87) 3477-1365",
+            campus: ["Campus Recife"]
 
 
         },
@@ -85,7 +91,8 @@ db.professores.insertMany(
             salario: Decimal128("13.950"),
             data_nascimento: new ISODate("1975-03-07"),
             email: "marceloanderson@cin.ufpe.br",
-            telefone: "(87) 3706-7861"
+            telefone: "(87) 3706-7861",
+            campus: ["Campus Recife"]
 
         },
 
@@ -96,7 +103,8 @@ db.professores.insertMany(
             salario: Decimal128("7.120"),
             data_nascimento: new ISODate("1965-05-12"),
             email: "gabrielalmeida@cin.ufpe.br",
-            telefone: "(81) 3249-5752"
+            telefone: "(81) 3249-5752",
+            campus: ["Campus Agreste"]
 
         },
 
@@ -107,7 +115,8 @@ db.professores.insertMany(
             salario: Decimal128("8.500"),
             data_nascimento: new ISODate("1959-04-03"),
             email: "liviavasconcelos@cin.ufpe.br",
-            telefone: "(81) 3035-0891"
+            telefone: "(81) 3035-0891",
+            campus: ["Campus Recife", "Campus Agreste"]
 
         },
 
@@ -118,7 +127,8 @@ db.professores.insertMany(
             salario: Decimal128("9.700"),
             data_nascimento: new ISODate("1985-03-14"),
             email: "victorluiz@cin.ufpe.br",
-            telefone: "(87) 3848-7261"
+            telefone: "(87) 3848-7261",
+            campus: ["Campus Recife", "Campus Agreste"]
 
         },
 
@@ -129,7 +139,8 @@ db.professores.insertMany(
             salario: Decimal128("7.690"),
             data_nascimento: new ISODate("1971-07-30"),
             email: "thayanasantos@cin.ufpe.br",
-            telefone: "(81) 2282-5652"
+            telefone: "(81) 2282-5652",
+            campus: ["Campus Recife"]
 
         },
 
@@ -140,7 +151,8 @@ db.professores.insertMany(
             salario: Decimal128("11.900"),
             data_nascimento: new ISODate("1967-02-28"),
             email: "ayandsoncarlos@cin.ufpe.br",
-            telefone: "(87) 3798-1226"
+            telefone: "(87) 3798-1226",
+            campus: ["Campus Recife"]
 
         },
 
@@ -151,7 +163,8 @@ db.professores.insertMany(
             salario: Decimal128("8.500"),
             data_nascimento: new ISODate("1950-03-12"),
             email: "eduardoconti@cin.ufpe.br",
-            telefone: "(87) 2262-7229"
+            telefone: "(87) 2262-7229",
+            campus: ["Campus Recife"]
 
         },
 
@@ -162,7 +175,8 @@ db.professores.insertMany(
             salario: Decimal128("6.230"),
             data_nascimento: new ISODate("1987-12-12"),
             email: "rafaelsilva@cin.ufpe.br",
-            telefone: "(87) 2699-2222"
+            telefone: "(87) 2699-2222",
+            campus: ["Campus Recife"]
 
         }, 
 
@@ -173,7 +187,8 @@ db.professores.insertMany(
             salario: Decimal128("8.890"),
             data_nascimento: new ISODate("1988-09-03"),
             email: "gustavonascimento@cin.ufpe.br",
-            telefone: "(87) 2475-5824"
+            telefone: "(87) 2475-5824",
+            campus: ["Campus Agreste"]
 
         },
 
@@ -184,7 +199,8 @@ db.professores.insertMany(
             salario: Decimal128("13.000"),
             data_nascimento: new ISODate("1983-10-27"),
             email: "dandalialuiza@cin.ufpe.br",
-            telefone: "(81) 3218-4422"
+            telefone: "(81) 3218-4422",
+            campus: ["Campus Recife", "Campus Agreste"]
 
         },       
 
