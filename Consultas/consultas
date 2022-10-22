@@ -33,3 +33,63 @@ db.disciplinas.aggregate([
 //FIND, TEXT, SEARCH: Disciplinas introdutórias
 db.disciplinas.createIndex({nome: 'text'});
 db.disciplinas.find({$text: {$search: '1'}}, {_id : 0, nome: 1, descricao: 1});
+
+//SIZE: Procurando qual disciplina tem 3 professores ensinando.
+
+db.disciplinas.find({professor_ensina: {$size: 3}}, {nome: 1, _id: 0})
+
+//PROJECT: Procurando o nome e o salário dos professores, excluindo o id.
+
+db.professores.aggregate( [ { $project : { nome : 1 , salario : 1 , _id: 0} } ] )
+
+
+//SUM, GROUP, AGGREGATE:   Agregar os valores dos centros e conta o número de ocorrências de cada um deles
+db.getCollection('cursos').aggregate([
+  {
+    "$group": {
+      _id: "$centro",
+      count: {
+        $sum: 1
+      }
+    }
+  }
+])
+
+//AVG
+
+db.disciplinas.find({professor_ensina: {$size: 3}}, {nome: 1, _id: 0, salario: {$avg}})
+
+//GROUP, AVG: Buscando qual a média de salário dos professores de todas as disciplinas.
+
+db.disciplinas.aggregate([
+  {$unwind: '$professor_ensina'},
+  {$group: {_id:'$nome', media_salarial: {$avg: '$professor_ensina.salario'}}}
+])
+
+//EXISTS: Buscando qual disciplina não possui nenhum professor.
+db.disciplinas.find({professor_ensina: {$exists: false}}).count()
+
+//LIMIT, SORT: Buscando os 3 professores com maior salário, e colocando em ordem com base nos valores.
+db.professores.find( ).sort({"salario":-1}).limit(3)
+
+//$ALL: Exibindo os cursos que são ofertados nos Campus Recife e Agreste.
+db.cursos.find({campus: {$all: ["Campus Recife", "Campus Agreste"]}}, {nome_curso: 1})
+
+//UPDATE, $SET: Atualizando o número de telefone de um professor.
+db.professores.updateOne({"nome": "Victor Luiz"}, {$set: {"telefone": "(81) 3851-8410"}})
+
+//PROJECT, FILTER, COND: Buscando os professores que tem o salário maior ou igual a 5000.
+db.disciplinas.aggregate( [
+   {
+      $project: {
+        nome: 1, _id: 0,
+         professor_ensina: {
+            $filter: {
+               input: "$professor_ensina",
+               as: "professor",
+               cond: { $gte: [ "$$professor.salario", 5.000 ] }
+            }
+         }
+      }
+   }
+] )
