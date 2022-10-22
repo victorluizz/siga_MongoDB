@@ -202,7 +202,7 @@ db.professores.insertMany(
             telefone: "(81) 3218-4422",
             campus_leciona: ["Campus Recife", "Campus Agreste"]
 
-        },       
+        }      
 
     ],
 
@@ -239,7 +239,7 @@ db.createCollection("disciplinas");
                 codigo: 123,
                 descricao: "Projeto de empreendedorismo.",
                 creditos: 3,
-                professor_ensina: [db.professores.findOne({cpf: "70819862428"})._id]
+                professor_ensina: [db.professores.findOne({cpf: "70819862428"})]
 
             },
 
@@ -283,7 +283,7 @@ db.createCollection("disciplinas");
                 codigo: 128,
                 descricao: "Criar compiladores.",
                 creditos: 4,
-                professor_ensina: [db.professores.findOne({cpf: "25387941457"})._id]
+                professor_ensina: [db.professores.findOne({cpf: "25387941457"})]
 
             },
 
@@ -523,7 +523,7 @@ db.createCollection("curso");
                        db.disciplinas.findOne({codigo: 129}),
                        db.disciplinas.findOne({codigo: 143}),
                        db.disciplinas.findOne({codigo: 145}),
-                       db.disciplinas.findOne({codigo: 141}),]
+                       db.disciplinas.findOne({codigo: 141})]
             
         },
 
@@ -540,7 +540,7 @@ db.createCollection("curso");
                        db.disciplinas.findOne({codigo: 135}),
                        db.disciplinas.findOne({codigo: 138}),
                        db.disciplinas.findOne({codigo: 139}),
-                       db.disciplinas.findOne({codigo: 140}),]
+                       db.disciplinas.findOne({codigo: 140})]
            
         }
 
