@@ -4,12 +4,15 @@ use("SigaDB");
 // RENAMECOLLECTION
 db.curso.renameCollection("cursos");
 
+/*
 // COUNT
 db.professores.count();
 db.disciplinas.count();
 db.cursos.count();
+*/
 
 // $WHERE FUNCTION
+// Aparentemente, não conseguiremos testar na versão gratuita. 
 db.professores.find({$where: function() {
     return (this.cpf == "50544000447")
 }
@@ -55,9 +58,6 @@ db.getCollection('cursos').aggregate([
   }
 ])
 
-//AVG
-
-db.disciplinas.find({professor_ensina: {$size: 3}}, {nome: 1, _id: 0, salario: {$avg}})
 
 //GROUP, AVG: Buscando qual a média de salário dos professores de todas as disciplinas.
 
@@ -91,5 +91,26 @@ db.disciplinas.aggregate( [
             }
          }
       }
+   }
+] )
+
+//ADDTOSET: Atualizar a disciplina de estatística adicionar mais um professor
+db.getCollection('disciplinas').updateOne(
+    { codigo: 127 },
+    { $addToSet: { professor_ensina: db.getCollection('professores').findOne({codigo_professor: 1}) } }
+);
+db.getCollection('disciplinas').find({ codigo: 127 }).pretty();
+
+//LOOKUP: Exibindo os campus em comum da coleção de "professores" e "cursos"
+db.professores.aggregate( [
+   {
+      $lookup:
+         {
+            from: "cursos",
+            localField: "campus_leciona",
+            foreignField: "campus",
+            as: "campus_array"
+        }
+
    }
 ] )
