@@ -115,21 +115,13 @@ db.professores.aggregate( [
    }
 ] )
 
-//MAPREDUCE, FUNCTION: exibe nome da disciplina como chave, e o máx de salário que um professor recebe como valor
+//MAPREDUCE, FUNCTION: exibe nome da disciplina como chave e qtde de creditos totais como valor
 var mapFun = function(){
-  var doc = {
-    nome: this.nome,
-    professores_disc: this.professor_ensina,
-  }
-  emit(this.nome, doc)
+  emit(this.nome, this.creditos)
 };
-var reduceFun = function(nome, doc){
-  var salarios = [];
-  for(var i = 0; i<= doc.professor_ensina.length; i++){
-    salarios[i] = doc.professor_ensina[i].salario;
-  }
-  var max_prof = Math.max(...salarios);
-  return (nome, max_prof)
+var reduceFun = function(nome, valor){
+  const qtde_cred = valor.reduce((a, b) => a + b, 0);
+  return (nome, qtde_cred)
 };
 db.disciplinas.mapReduce(
   mapFun,
@@ -138,3 +130,4 @@ db.disciplinas.mapReduce(
     out: 'map_reduce_saida'
   }
 );
+db.map_reduce_saida.find();
