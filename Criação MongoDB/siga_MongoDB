@@ -508,7 +508,7 @@ db.createCollection("curso");
 
 /*
     Explicação da coleção de "curso":
-    Nesta coleção, cada curso possui os atributos: Nome do curso, centro em que ele é realziado,
+    Nesta coleção, cada curso possui os atributos: Nome do curso, centro em que ele é realizado,
     departamento que oferta o curso, campus em que ele é ofertado, código e as disciplinas que são 
     oferecidas neles.
     Para vincular a disciplina ao curso, fizemos uma busca utilizando o "findOne" pegando o atributo
