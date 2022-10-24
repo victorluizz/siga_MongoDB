@@ -1,10 +1,25 @@
 use("SigaDB");
 
 /*
+    Nosso Banco de Dados é sobre "Siga, disciplinas e professores", e criamos três coleções, sendo uma 
+    de Professores, uma de Disciplinas e uma de cursos.
+    Cada professor leciona uma ou mais disciplinas, e cada disciplina pode ter mais de um professor. Cada
+    disciplina está vinculada a um curso, podendo haver disciplinas que possuem o mesmo nome, mas são de 
+    cursos diferentes. Cada curso é ofertado em um campus, podendo ser este o campus Recife ou Agreste.
+*/
+
+/*
     Criando a coleção de "professores".
 */
 
 db.createCollection("professores");
+
+/*
+    Explicação da coleção de "professores":
+    Cada professor possui atributos como: CPF, nome, código, salário, data de nascimento, email 
+    institucional, telefone para contato e os campus nos quais ele trabalha, podendo ser o campus Recife 
+    ou o Agreste.
+*/
 
 /*
     Inserindo professores.
@@ -215,8 +230,16 @@ db.professores.insertMany(
     Criando a coleção de "disciplinas".
 */
 
-
 db.createCollection("disciplinas");
+
+/*
+    Explicação da coleção "disciplinas":
+    Nessa coleção, cada disciplina possui os atributos: Nome, código, descrição, créditos e o ou os
+    professores que ensinam na mesma.
+    Para vincular o professor a uma disciplina, realizamos uma consulta com o "findOne" buscando pelo
+    CPF do professor e o inserindo no array de professores que ensinam na disciplina.
+*/
+
 
 /*
     Inserindo as disciplinas.
@@ -479,10 +502,19 @@ db.createCollection("disciplinas");
 
 );
 /*
-    Criando a coleção de "cursos".
+    Criando a coleção de "curso".
 */
-
 db.createCollection("curso");
+
+/*
+    Explicação da coleção de "curso":
+    Nesta coleção, cada curso possui os atributos: Nome do curso, centro em que ele é realziado,
+    departamento que oferta o curso, campus em que ele é ofertado, código e as disciplinas que são 
+    oferecidas neles.
+    Para vincular a disciplina ao curso, fizemos uma busca utilizando o "findOne" pegando o atributo
+    "codigo" da disciplina e inserindo a mesma no array de disciplinas. Para cada disciplina no array, 
+    ficam salvas todas as informações da disciplina, assim como as dos professores que ensinam na mesma.
+*/
 
 /*
     Inserindo curso (será renomeado para cursos).
